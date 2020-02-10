@@ -32,7 +32,7 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
     MenuComponent,
     ShoppingCartComponent,
     MenuItemComponent,
-    ReviewsComponent
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,

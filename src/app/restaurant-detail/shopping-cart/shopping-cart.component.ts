@@ -1,3 +1,5 @@
+import { CartItem } from './cart-item.model';
+import { MenuItem } from './../menu-item/menu-item.model';
 import { ShoppingCartService } from './shopping-cart.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -18,7 +20,10 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   total(): number {
-    return this.shoppingCartService.total();
+    return this.shoppingCartService.total()
   }
 
+  addItem(item): any {
+    return this.shoppingCartService.addItem(item);
+  }
 }
