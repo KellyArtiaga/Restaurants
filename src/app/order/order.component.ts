@@ -1,3 +1,4 @@
+import { RadioOption } from './../shared/radio/radio-option.model';
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
 import { ShoppingCartService } from 'app/restaurant-detail/shopping-cart/shopping-cart.service';
@@ -12,6 +13,11 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
   }
+  paymentOptions: RadioOption[] = [
+    { label: 'Dinheiro', value: 'MON' },
+    { label: 'Cartão de Débito', value: 'DEB' },
+    { label: 'Cartão de Refeição', value: 'REF' }
+  ]
 
   items(): CartItem[] {
     return this.shoppingCartService.items;

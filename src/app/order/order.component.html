@@ -1,12 +1,10 @@
-<!--INICIO DO CONTEUDO-->
 <section class="content-header">
 </section>
 
 <section class="content">
   <section class="invoice">
-    {{form.valid}}
-    {{form.value | json}}
-
+    <!--     {{form.valid}}
+    {{form.value | json}} -->
     <form #form="ngForm" novalidade>
       <div class="row">
         <div class="col-xs-12">
@@ -21,17 +19,16 @@
           <p class="lead">Endereço de Entrega:</p>
         </div>
         <div class="col-sm-6 col-xs-12">
-          <mt-input></mt-input>
+          <input class="form-control" autocomplete="off" placeholder="Endereço" name="address" ngModel required>
         </div>
         <div class="col-sm-2 col-xs-6">
-          <mt-input></mt-input>
+          <input class="form-control" autocomplete="off" placeholder="Número" name="number" pattern='^[0-9]*$' ngModel
+            required>
         </div>
         <div class="col-sm-4 col-xs-6">
-          <mt-input></mt-input>
+          <input class="form-control" autocomplete="off" placeholder="Complemento" name="optional" ngModel required>
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
 
       <!-- Table row -->
       <div class="row">
@@ -76,32 +73,9 @@
         <!-- accepted payments column -->
         <div class="col-sm-6 col-xs-12">
           <p class="lead">Formas de Pagamento:</p>
-
           <div class="form-group">
-            <div>
-              <label>
-                <div class="iradio_flat-red checked" aria-checked="false" aria-disabled="false"
-                  style="position: relative;">
-                  <input type="radio" name="r3" class="flat-red" checked="" style="position: absolute; opacity: 0;" />
-                  <ins class="iCheck-helper"
-                    style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                </div>
-                Dinheiro
-              </label>
-            </div>
-            <div>
-              <label>
-                <div class="iradio_flat-red" aria-checked="false" aria-disabled="false" style="position: relative;">
-                  <input type="radio" name="r3" class="flat-red" checked="" style="position: absolute; opacity: 0;" />
-                  <ins class="iCheck-helper"
-                    style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                </div>
-                Cartão de Débito
-              </label>
-            </div>
-
+            <mt-radio [options]="paymentOptions"></mt-radio>
           </div>
-
         </div>
         <!-- /.col -->
         <div class="col-sm-6 col-xs-12">
@@ -133,8 +107,7 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <a href="order-summary.html" class="btn btn-success pull-right" [disabled]="!form.valid"><i
-            class="fa fa-credit-card"></i> Concluir
+        <a href="order-summary.html" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir
           Pedido
         </a>
       </div>
