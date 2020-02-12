@@ -1,5 +1,4 @@
 import { CartItem } from './cart-item.model';
-import { MenuItem } from './../menu-item/menu-item.model';
 import { ShoppingCartService } from './shopping-cart.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,7 +14,7 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
   }
 
-  items(): any[] {
+  items(): CartItem[] {
     return this.shoppingCartService.items;
   }
 
@@ -23,7 +22,21 @@ export class ShoppingCartComponent implements OnInit {
     return this.shoppingCartService.total()
   }
 
+  removeItem(item: any) {
+    this.shoppingCartService.removeItem(item);
+  }
+
   addItem(item): any {
+    console.log(this.items());
+
+    return this.shoppingCartService.addItem(item);
+  }
+
+  clear() {
+    this.shoppingCartService.clear()
+  }
+
+  changeItem(item): any {
     return this.shoppingCartService.addItem(item);
   }
 }
