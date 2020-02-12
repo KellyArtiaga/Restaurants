@@ -1,0 +1,11 @@
+<div class="form-group" [class.has-success]="input.valid && (input.dirty || input.touched)"
+  [class.has-error]="!input.valid && (input.dirty || input.touched)" *ngFor="let item of list">
+
+  <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Endereço</label>
+  <ng-content></ng-content>
+
+  <input type="text" class="form-control" id="inputSuccess" autocomplete="off" placeholder="Endereço" name="address"
+    ngModel minlength="5">
+  <span class="help-block" *ngIf="input.valid && (input.dirty || input.touched)"><i class="fa fa-check"></i></span>
+  <span class="help-block" *ngIf="!input.valid && (input.dirty || input.touched)"><i class="fa fa-remove"></i></span>
+</div>

@@ -27,8 +27,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   addItem(item): any {
-    console.log(this.items());
-
     return this.shoppingCartService.addItem(item);
   }
 
