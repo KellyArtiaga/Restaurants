@@ -1,3 +1,4 @@
+import { OrderService } from './order/order-service';
 import { ROUTES } from './app.routes';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -49,7 +50,9 @@ import { OrderItemsComponent } from './order/order-items/order-items.component';
   ],
   providers: [
     RestaurantService,
-    ShoppingCartService],
+    OrderService,
+    ShoppingCartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

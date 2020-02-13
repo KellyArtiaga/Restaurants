@@ -30,11 +30,10 @@
       <!-- Table row -->
       <div class="row">
         <div class="col-xs-12">
-          <p *ngIf="expression"> há items no seu carrinho. Que tal começar <a [routerLink]="['/restaurants']"
-              routerLinkActive="router-link-active">Aqui</a>?</p>
           <p class="lead">Itens do Pedido:</p>
         </div>
-        <mt-order-items></mt-order-items>
+        <mt-order-items [items]="cartItem()" (increaseQty)="increaseQty($event)" (decreaseQty)="decreaseQty($event)"
+          (remove)="remove($event)"></mt-order-items>
       </div>
 
       <div class="row">

@@ -1,6 +1,7 @@
-import { CartItem } from './../../restaurant-detail/shopping-cart/cart-item.model';
+
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ShoppingCartService } from 'app/restaurant-detail/shopping-cart/shopping-cart.service';
+import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
 
 @Component({
   selector: 'mt-order-items',
@@ -10,9 +11,9 @@ export class OrderItemsComponent implements OnInit {
   @Input() items: CartItem[]
   @Output() increaseQty = new EventEmitter<CartItem>()
   @Output() decreaseQty = new EventEmitter<CartItem>()
-  @Output() removeQty = new EventEmitter<CartItem>()
+  @Output() remove = new EventEmitter<CartItem>()
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -25,8 +26,7 @@ export class OrderItemsComponent implements OnInit {
     this.decreaseQty.emit(item)
   }
 
-  remove(item: CartItem) {
-    this.removeQty.emit(item)
+  emitRemove(item: CartItem) {
+    this.remove.emit(item)
   }
-
 }
