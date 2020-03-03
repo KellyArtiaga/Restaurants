@@ -3,7 +3,6 @@
       routerLinkActive="router-link-active">Aqui</a>?</p>
   <hr>
 </div>
-
 <div class="col-xs-12 table-responsive">
   <table class="table table-striped">
     <thead>
@@ -24,9 +23,10 @@
         </td>
         <td>{{item.menuItem.name}}</td>
         <td>{{item.menuItem.description}}</td>
-        <!-- <td>{{item.menuItem.value() | currency: 'BRL' : true }}</td> -->
+        <td>{{item.value() | currency: 'BRL' : true }}</td>
 
-        <td class="text-right">{{total()}}</td>
+        <!--         <td class="text-right">{{total() | currency: 'BRL' : true }}</td>
+ -->
         <td class="text-right">
           <a class="btn btn-sm danger" (click)="emitRemove(item)"><i class="fa fa-remove"></i></a>
         </td>
@@ -34,5 +34,4 @@
     </tbody>
   </table>
   <hr>
-
 </div>

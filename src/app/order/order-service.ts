@@ -4,21 +4,26 @@ import { CartItem } from "app/restaurant-detail/shopping-cart/cart-item.model";
 
 @Injectable()
 export class OrderService {
-    constructor(private shoppingCartService: ShoppingCartService) { }
+
+    constructor(private cartService: ShoppingCartService) { }
 
     cartItem(): CartItem[] {
-        return this.shoppingCartService.items
+        return this.cartService.items
     }
 
     increaseQty(item: CartItem) {
-        this.shoppingCartService.increaseQty(item)
+        this.cartService.increaseQty(item)
     }
 
     decreaseQty(item: CartItem) {
-        this.shoppingCartService.decreaseQty(item)
+        this.cartService.decreaseQty(item)
     }
 
     remove(item: CartItem) {
-        this.shoppingCartService.removeItem(item)
+        this.cartService.removeItem(item)
+    }
+
+    itemsValue(): number {
+        return this.cartService.total()
     }
 }

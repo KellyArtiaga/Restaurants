@@ -1,6 +1,5 @@
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ShoppingCartService } from 'app/restaurant-detail/shopping-cart/shopping-cart.service';
 import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
 
 @Component({
@@ -12,6 +11,7 @@ export class OrderItemsComponent implements OnInit {
   @Output() increaseQty = new EventEmitter<CartItem>()
   @Output() decreaseQty = new EventEmitter<CartItem>()
   @Output() remove = new EventEmitter<CartItem>()
+  @Output() value = new EventEmitter<CartItem>()
 
   constructor() { }
 

@@ -1,7 +1,8 @@
 <section class="content">
   <section class="invoice">
+    <!-- 
     {{form.valid}}
-    {{form.value | json}}
+    {{form.value | json}} -->
     <form #form="ngForm" novalidade>
       <div class="row">
         <div class="col-xs-12">
@@ -16,14 +17,28 @@
           <p class="lead">Endereço de Entrega:</p>
         </div>
         <div class="col-sm-6 col-xs-12">
-          <input class="form-control" autocomplete="off" placeholder="Endereço" name="address" ngModel required>
+
+
+
+          <mt-input [items.name]=name></mt-input>
+
+
+
+
+
         </div>
         <div class="col-sm-2 col-xs-6">
-          <input class="form-control" autocomplete="off" placeholder="Número" name="number" pattern='^[0-9]*$' ngModel
-            required>
+          <div class="form-group" [class.has-success]="ipNumber.valid && (ipNumber.dirty || ipNumber.touched)"
+            [class.has-error]="!ipNumber.valid && (ipNumber.dirty || ipNumber.touched)">
+            <input class="form-control" autocomplete="off" placeholder="Número" name="number" #ipNumber=ngModel
+              pattern='^[0-9]*$' ngModel required></div>
         </div>
         <div class="col-sm-4 col-xs-6">
-          <input class="form-control" autocomplete="off" placeholder="Complemento" name="optional" ngModel required>
+          <div class="form-group" [class.has-success]="ipOptional.valid && (ipOptional.dirty || ipOptional.touched)"
+            [class.has-error]="!ipOptional.valid && (ipOptional.dirty || ipOptional.touched)">
+            <input class="form-control" autocomplete="off" placeholder="Complemento" name="optional" #ipOptional=ngModel
+              pattern='^[0-9]*$' ngModel required>
+          </div>
         </div>
       </div>
 
@@ -45,33 +60,19 @@
         </div>
         <div class="col-sm-6 col-xs-12">
           <p class="lead">Frete e Total:</p>
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <th style="width:50%">Itens:</th>
-                  <td class="text-right">R$ 20,00</td>
-                </tr>
-                <tr>
-                  <th>Frete:</th>
-                  <td class="text-right">R$ 8,00</td>
-                </tr>
-                <tr>
-                  <th>Total:</th>
-                  <td class="text-right">R$ 28,00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <mt-delivery-costs [delivery]='delivery' [itemsValue]='itemsValue()'> </mt-delivery-costs>
         </div>
       </div>
     </form>
+    <!--<button type="submit" [disabled]="form.invalid">submit</button>-->
+    <div *ngIf="form.invalid || cartItem().length === 0">Ups! Formulário invalido!</div>
 
     <div class="row">
       <div class="col-xs-12">
-        <a href="order-summary.html" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir
+        <button type="submit" [disabled]="form.invalid || cartItem().length === 0" class="btn btn-success pull-right"><i
+            class="fa fa-credit-card"></i> Concluir
           Pedido
-        </a>
+        </button>
       </div>
     </div>
   </section>

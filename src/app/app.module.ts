@@ -9,7 +9,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component'
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurants/restaurant/restaurant.component';
@@ -23,7 +22,8 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
 import { OrderComponent } from './order/order.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { OrderItemsComponent } from './order/order-items/order-items.component';
-
+import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
+import { InputComponent } from './shared/radio/input/input.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,9 @@ import { OrderItemsComponent } from './order/order-items/order-items.component';
     ReviewsComponent,
     OrderComponent,
     RadioComponent,
-    OrderItemsComponent
+    OrderItemsComponent,
+    DeliveryCostsComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,

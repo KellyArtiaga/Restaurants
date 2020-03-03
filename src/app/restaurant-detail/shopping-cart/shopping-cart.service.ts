@@ -17,7 +17,8 @@ export class ShoppingCartService {
     }
 
     increaseQty(item: CartItem) {
-        item.quantity = item.quantity + 1
+        item.quantity = item.quantity + 1;
+        console.log('increase' + item.quantity);
     }
 
     decreaseQty(item: CartItem) {
@@ -25,6 +26,7 @@ export class ShoppingCartService {
         if (item.quantity === 0) {
             this.removeItem(item)
         }
+        console.log('decrease' + item.quantity);
     }
 
     removeItem(item: CartItem) {
