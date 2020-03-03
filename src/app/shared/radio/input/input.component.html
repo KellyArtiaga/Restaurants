@@ -1,16 +1,10 @@
-<div class="container" *ngFor="let input of inputsL">
-  <div class="form-group" [class.has-success]="input.valid && (input.dirty || input.touched)"
-    [class.has-error]="!input.valid && (input.dirty || ipAdress.touched)">
-    <label class="control-label sr-only"><i class="fa fa-check"></i> {{label}}</label>
+<div class="form-group" [class.has-success]="input.valid && (input.dirty || input.touched)"
+  [class.has-error]="!input.valid && (input.dirty || input.touched)">
+  <label class="control-label sr-only"><i class="fa fa-check"></i> {{label}}</label>
 
-    <ng-content select="selector"></ng-content>
+  <ng-content></ng-content>
 
-
-    <input class="form-control" autocomplete="off" placeholder="{{input.name}}" #input=ngModel name="{{input.name}}"
-      ngModel required>
-    <span class="help-block" *ngIf="ipAdress.valid && (input.dirty || input.touched)"><i
-        class="fa fa-check"></i>Ok</span>
-    <span class="help-block" *ngIf="!ipAdress.valid && (input.dirty || input.touched)"><i class="fa fa-remove"></i>
-      {{errorMessage}}</span>
-  </div>
+  <span class="help-block" *ngIf="input.valid && (input.dirty || input.touched)"><i class="fa fa-check"></i>Ok</span>
+  <span class="help-block" *ngIf="!input.valid && (input.dirty || input.touched)"><i class="fa fa-remove"></i>
+    {{errorMessage}}</span>
 </div>

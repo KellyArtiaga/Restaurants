@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ContentChild, NgModule, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, AfterContentInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 
@@ -10,24 +10,22 @@ import { NgModel } from '@angular/forms';
 
 export class InputComponent implements OnInit, AfterContentInit {
 
-  input: any;
-  @Input() label: string;
+  @Input() label: string
   @Input() errorMessage: string
+  //valores vao ser passados por fora
+  input: any
+
+
   @ContentChild(NgModel) model: NgModel
 
-  itemsL: [{
-    name: 'ipName'
-  }, {
-    name: 'ipNumber'
-  }, {
-    name: 'ipOptional'
-  },
-  ]
   constructor() { }
 
   ngOnInit() {
   }
   ngAfterContentInit(): void {
-    throw new Error("Method not implemented.");
+    this.input = this.model;
+    if (this.input === undefined) {
+      throw new Error("Method not implemented.");
+    }
   }
 }

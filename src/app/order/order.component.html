@@ -17,31 +17,22 @@
           <p class="lead">Endereço de Entrega:</p>
         </div>
         <div class="col-sm-6 col-xs-12">
-
-
-
-          <mt-input [items.name]=name></mt-input>
-
-
-
-
-
+          <mt-input errorMessage="Campo obrigatório com mínimo de 5 caracteres" label="Endereço">
+            <input class="form-control" name="adress" placeholder="Endereço" ngModel required minlength="5"
+              autocomplete="off">
+          </mt-input>
         </div>
-        <div class="col-sm-2 col-xs-6">
-          <div class="form-group" [class.has-success]="ipNumber.valid && (ipNumber.dirty || ipNumber.touched)"
-            [class.has-error]="!ipNumber.valid && (ipNumber.dirty || ipNumber.touched)">
-            <input class="form-control" autocomplete="off" placeholder="Número" name="number" #ipNumber=ngModel
-              pattern='^[0-9]*$' ngModel required></div>
+        <div class="col-sm-3 col-xs-6">
+          <mt-input errorMessage="Campo obrigatório" label="Number">
+            <input class="form-control" name="number" placeholder="Número" ngModel required pattern='^[0-9]*$'>
+          </mt-input>
         </div>
-        <div class="col-sm-4 col-xs-6">
-          <div class="form-group" [class.has-success]="ipOptional.valid && (ipOptional.dirty || ipOptional.touched)"
-            [class.has-error]="!ipOptional.valid && (ipOptional.dirty || ipOptional.touched)">
-            <input class="form-control" autocomplete="off" placeholder="Complemento" name="optional" #ipOptional=ngModel
-              pattern='^[0-9]*$' ngModel required>
-          </div>
+        <div class="col-sm-3 col-xs-6">
+          <mt-input errorMessage="Campo obrigatório" label="Adicional">
+            <input class="form-control" name="optional" placeholder="Complemento" ngModel required pattern='^[0-9]*$'>
+          </mt-input>
         </div>
       </div>
-
       <!-- Table row -->
       <div class="row">
         <div class="col-xs-12">
@@ -63,14 +54,15 @@
           <mt-delivery-costs [delivery]='delivery' [itemsValue]='itemsValue()'> </mt-delivery-costs>
         </div>
       </div>
+
     </form>
     <!--<button type="submit" [disabled]="form.invalid">submit</button>-->
     <div *ngIf="form.invalid || cartItem().length === 0">Ups! Formulário invalido!</div>
 
     <div class="row">
       <div class="col-xs-12">
-        <button type="submit" [disabled]="form.invalid || cartItem().length === 0" class="btn btn-success pull-right"><i
-            class="fa fa-credit-card"></i> Concluir
+        <button type="button" (click)="checkValue(form.value)" [disabled]="form.invalid || cartItem().length === 0"
+          class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir
           Pedido
         </button>
       </div>
